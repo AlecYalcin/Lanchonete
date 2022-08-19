@@ -12,3 +12,12 @@ def index(request):
         return redirect("cardapio")
     produtos = {"produtos_chave": cardapio, "form_produto": form}
     return render(request, "index.html", produtos)
+
+def update(request, id_produto):
+    produto = Produto.objects.get(pk=id_produto)
+    form = ProdutoForm(request.POST or None, instance=produto)
+    if form.is_valid():
+        form.save()
+        return redirect("cardapio")
+    produtos = {"form_produto": form}
+    return render(request, "index.html", produtos)
