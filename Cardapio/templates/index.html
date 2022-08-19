@@ -43,6 +43,7 @@
             <td>&nbsp;&nbsp;&nbsp;Preço&nbsp;&nbsp;&nbsp;</td>
             <td>Adicional</td>
             <td>Bom?</td>
+            <td>Atualizar</td>
         </tr>
         {% for produto in produtos_chave %}
         <tr>
@@ -55,7 +56,11 @@
                     <i class="fa-solid fa-xmark"></i>
                 {% endif %}
             </td>
+            <td>
+                <a href="{% url 'update' produto.id %}">Att</a>
+            </td>
         </tr>
+        
         {%  endfor %}
     </table>
 
