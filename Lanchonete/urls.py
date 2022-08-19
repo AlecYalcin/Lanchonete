@@ -5,5 +5,5 @@ from Cardapio       import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('cardapio/', views.index),
+    path('cardapio/', views.index, name="cardapio"),
 ]

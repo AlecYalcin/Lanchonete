@@ -59,6 +59,17 @@
         {%  endfor %}
     </table>
 
-    {{ form_produto }}
+    {% comment %} FORMULÁRIO PARA REGISTRAR NOVO LANCHE {% endcomment %}
+    <form method="POST">
+        {% csrf_token %}
+        {{ form_produto }}
+        <button type="submit">Salvar</button>
+    </form>
+
+    <style>
+        form {
+            margin-top: 2.5%;
+        }
+    </style>
 </body>
 </html>
