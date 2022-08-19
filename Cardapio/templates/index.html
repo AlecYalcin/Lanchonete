@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardapio</title>
+    <script src="https://kit.fontawesome.com/29b6747efd.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            text-align: center;
+        }
+
+        body {
+            background-color: lightblue;
+        }
+
+        #header {
+            background-color: grey;
+            color: white;
+        }
+        table, td {
+            margin: auto;
+            font-size: 22px;
+            border: 1px solid black;
+        }
+
+        table {
+            background-color: white;
+        }
+
+       
+    </style>
+</head>
+<body>
+    {{ produtos_chave }}
+    <h1>Cardápio Online!</h1>
+    <h4>Lista de Produtos:</h4>
+    <table>
+        <tr id="header">
+            <td>Nome</td>
+            <td>&nbsp;&nbsp;&nbsp;Preço&nbsp;&nbsp;&nbsp;</td>
+            <td>Adicional</td>
+            <td>Bom?</td>
+        </tr>
+        {% for produto in produtos_chave %}
+        <tr>
+            <td>{{ produto.nome }}</td>
+            <td>R${{ produto.valor}}</td>
+            <td>{{ produto.adc_id }}</td>
+            <td>{% if produto.bom %}
+                    <i class="fa-solid fa-check"></i>
+                {% else %}
+                    <i class="fa-solid fa-xmark"></i>
+                {% endif %}
+            </td>
+        </tr>
+        {%  endfor %}
+    </table>
+
+    {{ form_produto }}
+</body>
+</html>
