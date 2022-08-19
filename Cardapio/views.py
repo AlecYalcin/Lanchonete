@@ -5,7 +5,13 @@ from Cardapio.models  import Produto, Adicional
 # Create your views here.
 
 def index(request):
-    cardapio = Produto.objects.all().values
+    cardapio = Produto.objects.all()
+    
+    for i in cardapio:
+        adicional = Adicional.objects.get(pk=i.adc)
+        i.adicional.update({"oii": adicional.nome})
+    
+    
     form = ProdutoForm(request.POST or None)
     if form.is_valid():
         form.save()
