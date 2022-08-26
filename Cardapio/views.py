@@ -5,18 +5,14 @@ from Cardapio.models  import Produto, Adicional
 # Create your views here.
 
 def index(request):
-    cardapio = Produto.objects.all()
-    
-    for i in cardapio:
-        adicional = Adicional.objects.get(pk=i.adc)
-        i.adicional.update({"oii": adicional.nome})
-    
-    
+    cardapio = Produto.objects.all().values
+    adicional = Adicional.objects.all().values
+
     form = ProdutoForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect("cardapio")
-    produtos = {"produtos_chave": cardapio, "form_produto": form}
+    produtos = {"produtos_chave": cardapio, "adicional_chave": adicional,"form_produto": form}
     return render(request, "index.html", produtos)
 
 def update(request, id_produto):
@@ -27,3 +23,8 @@ def update(request, id_produto):
         return redirect("cardapio")
     produtos = {"form_produto": form}
     return render(request, "index.html", produtos)
+
+def delete(request, id_produto):
+    mesa = Produto.objects.get(pk = id_produto)
+    mesa.delete()
+    return redirect("cardapio")

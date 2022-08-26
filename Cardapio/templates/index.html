@@ -34,7 +34,8 @@
     </style>
 </head>
 <body>
-    {{ produtos_chave }}
+    {{ adicional_chave.0 }}
+    {% comment %} {{ adicional_chave }} {% endcomment %}
     <h1>Cardápio Online!</h1>
     <h4>Lista de Produtos:</h4>
     <table>
@@ -43,13 +44,18 @@
             <td>&nbsp;&nbsp;&nbsp;Preço&nbsp;&nbsp;&nbsp;</td>
             <td>Adicional</td>
             <td>Bom?</td>
-            <td>Atualizar</td>
+            <td>Editar/Apagar</td>
         </tr>
         {% for produto in produtos_chave %}
         <tr>
             <td>{{ produto.nome }}</td>
             <td>R${{ produto.valor}}</td>
-            <td>{{ produto.oii }}</td>
+            <td>{% for adicional in adicional_chave %}
+                    {% if adicional.id == produto.adc_id %}
+                        {{ adicional.nome }}
+                    {%endif %}
+                {% endfor %}
+            </td>
             <td>{% if produto.bom %}
                     <i class="fa-solid fa-check"></i>
                 {% else %}
@@ -57,7 +63,8 @@
                 {% endif %}
             </td>
             <td>
-                <a href="{% url 'update' produto.id %}">Att</a>
+                <a href="{% url 'update' produto.id %}"><i class="fa-solid fa-pen"></i></a>
+                <a href="{% url 'delete' produto.id %}"><i class="fa-solid fa-delete-left"></i></a>
             </td>
         </tr>
         
