@@ -85,7 +85,7 @@
                   {{ produto.nome }}
                 </a>
                 <span>
-                  {{ produto.preco }}
+                  R${{ produto.preco }}
                   <a href="{% url 'deleteProduto' produto.id %}">
                     <i class="fas fa-solid fa-trash"></i>
                   </a>
