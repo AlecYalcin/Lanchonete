@@ -20,7 +20,7 @@ def createProduto(request):
     # Varificar se o FORMULÁRIO é VÁLIDO
     if form.is_valid():
         form.save()
-        return redirect("createProduto")
+        return redirect("main")
     # Retornar tudo para createProduto.html
     produtos = {"form_produto": form}
     return render(request, "produto.html", produtos)
