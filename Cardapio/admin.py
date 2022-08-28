@@ -1,5 +1,4 @@
 from django.contrib import admin
-from Cardapio.models import Adicional, Produto
+from Cardapio.models import Produto
 # Register your models here.
-admin.site.register(Adicional)
 admin.site.register(Produto)
