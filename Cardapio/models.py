@@ -10,4 +10,4 @@ class Produto(models.Model):
 class Chefe(models.Model):
     nome            = models.CharField(max_length=132)
     posicao         = models.CharField(max_length=100)
-    img_url         = models.CharField(max_length=999)
+    img_url         = models.CharField(max_length=999, default='https://pbs.twimg.com/profile_images/1265738409810722816/cLkZUf3f_400x400.jpg')
