@@ -9,6 +9,3 @@ for(var input=0; input < inputName.length; input++) {
     }    
     inputName[input].classList.add('m-1')
 }
-
-// inputName.classList.add("form-control")
-console.log(inputName.tagName)
