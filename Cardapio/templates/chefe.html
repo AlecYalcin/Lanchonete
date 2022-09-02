@@ -71,8 +71,10 @@
     <section class="inner-page">
         <div class="row">
             <div class="container-fluid col-4">
-                <form action="{% url 'main' %}">
+                <form method="POST">
+                  {% csrf_token %}
                   <div class="form-group">
+
                     {{ form_chefe.nome.label }}   
                     {{ form_chefe.nome }}   
                   </div>
