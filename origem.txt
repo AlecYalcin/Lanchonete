@@ -1,0 +1,5 @@
+Esse projeto foi desenvolvido anteriormente para a avaliação do segundo bimestre da mesma matéria.
+Grupo: Alec Can Yalcin
+
+Obs: As buscas estão na mesma tela, pelo motivo de que o CRUD está em dois, então não queria manter uma busca individual pois ficaria ineficiente e feio, embora
+eu não ache que eu vá disponibilizar esse site um dia.
