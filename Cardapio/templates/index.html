@@ -33,15 +33,15 @@
   <header id="header" class="fixed-top d-flex align-items-cente">
     <div class="container-fluid container-xl d-flex align-items-center justify-content-lg-between">
 
-      <h1 class="logo me-auto me-lg-0"><a href="index.html">RESTAURANTE</a></h1>
+      <h1 class="logo me-auto me-lg-0"><a href="{% url 'main' %}">RESTAURANTE</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto me-lg-0"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Início</a></li>
-          <li><a class="nav-link scrollto" href="#menu">Cardápio</a></li>
-          <li><a class="nav-link scrollto" href="#chefs">Equipe</a></li>
+          <li><a class="nav-link scrollto"        href="#menu">Cardápio</a></li>
+          <li><a class="nav-link scrollto"        href="#chefs">Equipe</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -61,7 +61,6 @@
             <a href="#chefs" class="btn-book animated fadeInUp scrollto">Conheça nossa Equipe</a>
           </div>
         </div>
-
       </div>
     </div>
   </section><!-- End Hero -->
@@ -74,6 +73,11 @@
         <div class="section-title">
           <h2>Cardápio</h2>
           <p>Um Mar de Opções</p>
+          <form action="{% url 'buscaCardapio' %}" method="GET">
+            <input name="busca">
+            <button type="submit">Buscar Registro(s)</button>
+          </form>
+          <a href="{% url 'main'%}">Retirar Filtragem</a>
         </div>
 
         <div class="row menu-container" data-aos="fade-up" data-aos-delay="200">
@@ -115,6 +119,11 @@
         <div class="section-title">
           <h2>Equipe</h2>
           <p>Nossa Equipe Completa!</p>
+          <form action="{% url 'buscaChefe' %}" method="GET">
+            <input name="busca">
+            <button type="submit">Buscar Registro(s)</button>
+          </form>
+          <a href="{% url 'main'%}">Retirar Filtragem</a>
         </div>
 
         <div class="row">

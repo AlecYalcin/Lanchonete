@@ -34,6 +34,15 @@ def deleteProduto(request, id_produto):
     produto.delete()
     return redirect("main")
 
+def buscaProduto(request):
+    buscar = request.GET.get('busca')
+    resultados = Produto.objects.filter(nome__contains=buscar)
+
+    chefes   = Chefe.objects.all()
+
+    produtos = {"produtos_chave": resultados, "chefes_chave": chefes}
+    return render(request, "index.html", produtos)  
+
 # ==================================================================================
 # CRUD de Chefe
 # ==================================================================================
@@ -58,3 +67,12 @@ def deleteChefe(request, id_chefe):
     chefe = Chefe.objects.get(pk=id_chefe)
     chefe.delete()
     return redirect("main")
+
+def buscaChefe(request):
+    buscar = request.GET.get('busca')
+    resultados = Chefe.objects.filter(nome__contains=buscar)
+
+    cardapio = Produto.objects.all()
+
+    produtos = {"produtos_chave": cardapio, "chefes_chave": resultados}
+    return render(request, "index.html", produtos)  
